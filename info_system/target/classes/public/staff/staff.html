@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../assets/css/pintuer.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../assets/css/dataTables/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../assets/css/font.css">
+    <link rel="stylesheet" href="../assets/css/courseinfo.css">
+    <link rel="stylesheet" href="../assets/css/bootstrapValidator/bootstrapValidator.min.css">
+    <script src="../assets/js/jquery/jquery-2.1.4.min.js"></script>
+    <script src="../assets/js/pintuer.js"></script>
+    <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../assets/js/dataTables/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/staff/staff.js"></script>
+    <script src="../assets/js/vaildUserState.js"></script>
+    <script src="../assets/js/bootstrapValidator/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+    <script src="js/moment-with-locales.min.js"></script>
+    <script src="js/bootstrap-datetimepicker.min.js"></script>
+
+</head>
+<body>
+<form method="post" action="" id="listform">
+    <div class="panel admin-panel">
+        <div class="panel-head"><strong ><i class="icon_1">&#xe603;</i><a>员工信息</a></strong>
+            &nbsp;&nbsp;
+            <button type="button" class="btn btn-success btn-sm" onclick="addBefore()">添加</button>
+        </div>
+        <table id="example" class="display" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>员工号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>出生日期</th>
+                <th>工龄</th>
+                <th>电话</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+
+            <tfoot>
+            </tfoot>
+        </table>
+
+    </div>
+</form>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                    <h4 class="modal-title" id="myModalLabel">新增</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="staff_id" style="display: none">
+                    <div class="form-group">
+                        <label for="staff_name" class="control-label">姓名<span style="color: #e94d1c">*</span></label>
+                        <input type="text" class="form-control" id="staff_name" name="staff_name" placeholder="请输入姓名">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="sex" class="control-label">性别<span style="color: #e94d1c">*</span></label>
+                        <!--<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">-->
+                        <select name="sex" id="sex" class="form-control">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                    </div>
+
+
+                   <!-- <div class="form-group">
+                        <label for="birthday" class="control-label">出生日期<span style="color: #e94d1c"></span></label>
+                        <input type="text" class="form-control" id="birthday" name="birthday" placeholder="请输入出生日期">
+                    </div>-->
+
+                            <div class="form-group">
+                                <label for="birthday" class="control-label">出生日期</label>
+                                <!--指定 date标记-->
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <input  id="birthday" type='text' name="birthday" class="form-control" />
+                                    <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                </span></div>
+
+
+
+                        <div class="form-group">
+                        <label for="years" class="control-label">工龄<span style="color: #e94d1c">*</span></label>
+                        <input type="text" class="form-control" id="years" name="years" placeholder="请输入">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tel" class="control-label">联系方式<span style="color: #e94d1c">*</span></label>
+                        <input type="text" class="form-control" id="tel" name="tel" placeholder="请输入">
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeWindow()">关闭
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="save" onclick="add()">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                <h4 class="modal-title">确认</h4>
+            </div>
+            <input type="text" id="del_id" style="display: none">
+            <div class="modal-body">
+                <p>确认删除当前信息?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-danger" onclick="del()">删除</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+</body>
+<script>
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            format: 'YYYY-MM-DD',
+            locale: moment.locale('zh-cn')
+        });
+    });
+</script>
+</html>

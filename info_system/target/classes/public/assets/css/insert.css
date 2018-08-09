@@ -1,0 +1,17 @@
+body{
+    margin-top: 8% !important;
+}
+.form-control{
+    width:200px;
+}
+.form-horizontal{
+    width:360px;
+    height:700px;
+    margin: 0 auto !important;
+}
+.form-horizontal .form-group{
+    margin-right: -168px !important;
+}
+.btn{
+    margin-left:11%
+}

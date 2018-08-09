@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.infosystem.demo.mapper.StyleMapper">
+        <resultMap id="styleMap" type="com.infosystem.demo.domain.Style">
+            <id property="style_id" column="style_id" javaType="java.lang.Integer"></id>
+            <result property="style_name" column="style_name" javaType="java.lang.String"></result>
+            <result property="cost" column="cost" javaType="java.lang.Integer"></result>
+            <result property="total" column="total" javaType="java.lang.Integer"></result>
+            <result property="rest" column="rest" javaType="java.lang.Integer"></result>
+            <result property="remarks" column="remarks" javaType="java.lang.String"></result>
+        </resultMap>
+
+        <select id="findAllStyle" resultMap="styleMap">
+            SELECT * from style
+        </select>
+</mapper>

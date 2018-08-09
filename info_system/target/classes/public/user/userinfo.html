@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+
+
+    <link rel="stylesheet" href="../assets/css/pintuer.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../assets/css/dataTables/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../assets/css/font.css">
+    <link rel="stylesheet" href="../assets/css/courseinfo.css">
+    <link rel="stylesheet" href="../assets/css/bootstrapValidator/bootstrapValidator.min.css">
+
+    <script src="../assets/js/jquery/jquery-2.1.4.min.js"></script>
+    <script src="../assets/js/pintuer.js"></script>
+    <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../assets/js/dataTables/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/plugins/handlebars-v3.0.1.js"></script>
+    <script src="../assets/js/bootstrapValidator/bootstrapValidator.min.js"></script>
+
+    <script src="../assets/js/user/user.js"></script>
+</head>
+<body>
+
+
+<form method="post" action="" id="listform">
+    <div class="panel admin-panel">
+        <div class="panel-head"><strong ><i class="icon_1">&#xe603;</i><a>用户信息</a></strong>
+            &nbsp;&nbsp;
+            <button type="button" class="btn btn-success btn-sm" onclick="addBefore()">添加</button>
+        </div>
+        <table id="example" class="display" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>编号</th>
+                <th>登录名</th>
+                <th>密码</th>
+                <th>信息</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+
+            <tfoot>
+            </tfoot>
+        </table>
+
+    </div>
+</form>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                    <h4 class="modal-title" id="myModalLabel">新增</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="id" style="display: none">
+                    <div class="form-group">
+                        <label for="name" class="control-label">用户名<span style="color: #e94d1c">*</span></label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="用户名">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="control-label">密码<span style="color: #e94d1c">*</span></label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+                    </div>
+                    <div class="form-group">
+                        <label for="info" class="control-label">个人信息<span style="color: #e94d1c">*</span></label>
+                        <textarea class="form-control" rows="3" id="info" name="info" placeholder="个人信息"
+                                  style="margin: 0 1px 0 0; height: 92px; width: 568px;">
+                    </textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeWindow()">关闭
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="save" onclick="add()">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                <h4 class="modal-title">确认</h4>
+            </div>
+            <input type="text" id="del_id" style="display: none">
+            <div class="modal-body">
+                <p>确认删除当前信息?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-danger" onclick="del()">删除</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+</body>
+</html>

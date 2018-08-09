@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生操作</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../assets/css/dataTables/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../assets/css/font.css">
+    <link rel="stylesheet" href="../assets/css/bootstrapValidator/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="../assets/css/jquery.toast.css">
+    <script src="../assets/js/jquery/jquery-2.1.4.min.js"></script>
+    <script src="../assets/js/pintuer.js"></script>
+    <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../assets/js/dataTables/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/plugins/handlebars-v3.0.1.js"></script>
+    <script src="../assets/js/bootstrapValidator/bootstrapValidator.min.js"></script>
+    <script src="../assets/js/jquery.toast.js"></script>
+    <script src="../assets/js/md5.min.js"></script>
+    <script src="../assets/js/admin/stuOperate.js"></script>
+</head>
+<body>
+    <div id="tableArea" class="panel admin-panel" style="width: 85%;margin: 0 auto">
+        <div class="panel-head">
+            <strong>
+                <i class="icon_1">&#xe603;</i>
+                用户列表
+            </strong>
+            &nbsp;&nbsp;<button type="button" class="btn btn-success btn-sm" onclick="addBefore()">添加</button>
+        </div>
+        <table id="example" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>用户名</th>
+                    <th>登录名</th>
+                    <th>用户类型</th>
+                    <th>是否有效(1有效，0无效)</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <!--reset Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <input type="text" id="user_id" style="display: none">
+                <form id="form">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                        <h4 class="modal-title" id="myModalLabel">重置密码</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="course_id" style="display: none">
+                        <div class="form-group">
+                            <label for="user_name" class="control-label">用户名<span style="color: #e94d1c">*</span></label>
+                            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="用户名" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="login_name" class="control-label">登录名<span style="color: #e94d1c">*</span></label>
+                            <input type="text" class="form-control" id="login_name" name="login_name" placeholder="登录名" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label">新密码<span style="color: #e94d1c">*</span></label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="新密码">
+                        </div>
+                        <div class="form-group">
+                            <label for="rePassword" class="control-label">确认密码<span style="color: #e94d1c">*</span></label>
+                            <input type="password" class="form-control" id="rePassword" name="rePassword" placeholder="确认密码">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeWindow()">关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" id="save">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--add Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="addform">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                        <h4 class="modal-title" id="addModalLabel">添加学生</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="userName" class="control-label">用户名<span style="color: #e94d1c">*</span></label>
+                            <input type="text" class="form-control" id="userName" name="userName" placeholder="用户名">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginName" class="control-label">登录名<span style="color: #e94d1c">*</span></label>
+                            <input type="text" class="form-control" id="loginName" name="loginName" placeholder="登录名">
+                        </div>
+                        <div class="form-group">
+                            <label for="InitialPassword" class="control-label">初始密码<span style="color: #e94d1c">*</span></label>
+                            <input type="password" class="form-control" id="InitialPassword" name="InitialPassword" placeholder="初始密码">
+                        </div>
+                        <div class="form-group">
+                            <label for="re_password" class="control-label">确认密码<span style="color: #e94d1c">*</span></label>
+                            <input type="password" class="form-control" id="re_password" name="re_password" placeholder="确认密码">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeWindow()">关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" id="add">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--authorize Modal -->
+    <div class="modal fade" id="authorizationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                        <h4 class="modal-title">课程授权</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 0">
+                        <div id="checkboxArea" class="panel admin-panel">
+                            <table id="coursesCheck" class="display" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th style="border-bottom: 0">
+                                        <input id="selectAll" type="checkbox">全选
+                                    </th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="close()">
+                            关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="save()">
+                            保存
+                        </button>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <!--确认框-->
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                    <h4 class="modal-title">确认</h4>
+                </div>
+                <input type="text" id="del_id" style="display: none">
+                <div class="modal-body">
+                    <p>确认重置密码?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="confirm()">确认</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+    <!--确认框-->
+    <div class="modal fade" id="confirmEnableDisabled" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <input type="text" id="userId" style="display: none">
+                <input type="text" id="status" style="display: none">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                    <h4 class="modal-title">确认</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="enableOrDisable"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="confirmEnableDisabled()">确认</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+    <!--定义操作列按钮模板-->
+    <!--说下这里使用模板的作用，除了显示和数据分离好维护以外，绑定事件和传值也比较方便，希望大家能不拼接html则不拼接-->
+    <script id="tpl" type="text/x-handlebars-template">
+        {{#each func}}
+        <button type="button" class="btn btn-{{this.type}} btn-sm" onclick="{{this.fn}}">{{this.name}}</button>
+        {{/each}}
+    </script>
+    <script id="tpl1" type="text/x-handlebars-template">
+        {{#each func1}}
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="{{this.id}}" name="course" value="{{this.course_name}}">{{this.course}}
+            </label>
+        </div>
+        {{/each}}
+    </script>
+</body>
+</html>
