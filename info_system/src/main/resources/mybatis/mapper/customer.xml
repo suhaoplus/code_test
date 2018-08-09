@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.infosystem.demo.mapper.CustomerInfoMapper">
+    <resultMap id="CustomerMap" type="com.infosystem.demo.domain.Customer">
+        <id property="customer_id" column="customer_id" javaType="java.lang.Integer"></id>
+        <result property="customer_name" column="customer_name" javaType="java.lang.String"></result>
+        <result property="sex" column="sex" javaType="java.lang.String"></result>
+        <result property="birthday" column="birthday" javaType="java.lang.String"></result>
+        <result property="ID" column="ID" javaType="java.lang.String"></result>
+        <result property="tel" column="tel" javaType="java.lang.String"></result>
+        <result property="remarks" column="remarks" javaType="java.lang.Integer"></result>
+    </resultMap>
+
+    <select id="findCustomers" resultMap="CustomerMap">
+        SELECT * FROM customer WHERE remarks=1
+    </select>
+
+    <update id="deleteCustomerById">
+        UPDATE customer set remarks=0 WHERE customer_id=#{customer_id}
+
+    </update>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.infosystem.demo.mapper.GuestRoomMapper">
+    <resultMap id="guestroomMap" type="com.infosystem.demo.domain.GuestRoom">
+        <id property="guest_room_id" column="guest_room_id" javaType="java.lang.Integer"></id>
+        <result property="type_id" column="type_id" javaType="java.lang.Integer"></result>
+        <result property="state" column="state" javaType="java.lang.String"></result>
+        <result property="remarks" column="remarks" javaType="java.lang.String"></result>
+    </resultMap>
+
+
+    <select id="findAllGuestRoom" resultMap="guestroomMap">
+        select * from guest_room
+    </select>
+
+    <select id="findGuestRoomById" parameterType="int" resultMap="guestroomMap">
+        select * from guest_room where type_id=#{type_id}
+    </select>
+</mapper>

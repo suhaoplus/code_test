@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>批量添加学生账户</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../assets/css/dataTables/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../assets/css/font.css">
+    <link rel="stylesheet" href="../assets/css/bootstrapValidator/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="../assets/css/jquery.toast.css">
+    <script src="../assets/js/jquery/jquery-2.1.4.min.js"></script>
+    <script src="../assets/js/pintuer.js"></script>
+    <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../assets/js/dataTables/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/plugins/handlebars-v3.0.1.js"></script>
+    <script src="../assets/js/bootstrapValidator/bootstrapValidator.min.js"></script>
+    <script src="../assets/js/jquery.toast.js"></script>
+    <script src="../assets/js/admin/bathAddStudent.js"></script>
+</head>
+<body style="width: 100%;">
+
+    <div style="width: auto;float: left;margin-bottom:10px">
+        <form id="form">
+            <div class="form-group">
+                <label for="textArea" class="control-label">批量添加学生账号<span style="color: #e94d1c">*</span></label>
+                <textarea id="textArea" name="textArea" class="form-control" rows="10" style="width: 300px;height: 700px;margin-bottom: 10px;"
+                placeholder="每行一个学生，第一列为用户名，第二列为登录名，中间以Tab键隔开"></textarea>
+            </div>
+        </form>
+        <button type="button" id="batchAdd" class="btn btn-primary btn-sm" style="float: right">提交</button>
+    </div>
+    <div id="tableArea" class="panel admin-panel" style="width: 20%;float: left;margin-left: 100px">
+        <div class="panel-head">
+            <strong>
+                <i class="icon_1">&#xe603;</i>
+                可学习的课程列表
+            </strong>
+        </div>
+        <table id="example" class="display" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>
+                    <input id="selectAll" type="checkbox">全选
+                </th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
+    <div style="clear: both">
+        <textarea id="displayResult" class="form-control" rows="50" style="width: 780px;height: 200px;margin-top: 10px" readonly></textarea>
+    </div>
+<!--定义操作列按钮模板-->
+<!--说下这里使用模板的作用，除了显示和数据分离好维护以外，绑定事件和传值也比较方便-->
+<script id="tpl" type="text/x-handlebars-template">
+    {{#each func}}
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" id="{{this.id}}" name="course" value="{{this.course_name}}">{{this.course}}
+        </label>
+    </div>
+    {{/each}}
+</script>
+</body>
+</html>

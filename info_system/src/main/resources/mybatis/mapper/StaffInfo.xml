@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.infosystem.demo.mapper.StaffInfoMapper">
+    <resultMap id="staffInfo" type="com.infosystem.demo.domain.StaffInfo">
+        <id property="staff_id" column="staff_id" javaType="java.lang.Integer"></id>
+        <result property="staff_name" column="staff_name" javaType="java.lang.String"></result>
+        <result property="sex" column="sex" javaType="java.lang.String"></result>
+        <result property="birthday" column="birthday" javaType="java.lang.String"></result>
+        <result property="years" column="years" javaType="java.lang.String"></result>
+        <result property="tel" column="tel" javaType="java.lang.String"></result>
+        <result property="remarks" column="remarks" javaType="java.lang.Integer"></result>
+    </resultMap>
+
+    <select id="findAllStaff" resultMap="staffInfo">
+        select * from staff where remarks=1
+    </select>
+
+    <insert id="addStaffInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into staff(staff_name,sex,birthday,years,tel) VALUES (#{staff_name},#{sex},#{birthday},#{years},#{tel})
+    </insert>
+
+    <update id="updateStaffInfo">
+        update staff set staff_name=#{staff_name},sex=#{sex},birthday=#{birthday},years=#{years},tel=#{tel} where staff_id=#{staff_id}
+    </update>
+
+    <update id="deleteStaffInfo">
+        UPDATE staff set remarks=0 where staff_id=#{staff_id}
+    </update>
+</mapper>

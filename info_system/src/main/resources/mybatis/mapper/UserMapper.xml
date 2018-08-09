@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.infosystem.demo.mapper.UserMapper">
+  <!-- 自定义返回结果集 -->
+     <resultMap id="userMap" type="com.infosystem.demo.domain.UserInfo">
+          <id property="id" column="id" javaType="java.lang.Integer"></id>
+          <result property="name" column="name" javaType="java.lang.String"></result>
+          <result property="password" column="password" javaType="java.lang.String"></result>
+         <result property="info" column="info" javaType="java.lang.String"></result>
+         <result property="user_type" column="user_type" javaType="java.lang.String"></result>
+     </resultMap>
+ 
+     <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+         insert into user (name,password,info) values (#{name},#{password},#{info})
+     </insert>
+     
+     <update id="updateUser">
+      	update user set name=#{name},password=#{password},info=#{info} where id=#{id}
+     </update>
+
+     <delete id="deleteUser" parameterType="int">
+      delete from user where id=#{id}  
+     </delete>
+     
+     <select id="findUserById" parameterType="int" resultMap="userMap">
+      select * from user where id=#{id}
+     </select>
+     
+     <select id="findAllUser" resultMap="userMap">
+      select * from user
+     </select>
+
+   <select id="findUser" parameterType="java.util.Map" resultType="com.infosystem.demo.domain.UserInfo">
+        select * from user where name=#{name} and password=#{password}
+    </select>
+     
+     
+</mapper>   

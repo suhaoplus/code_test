@@ -1,0 +1,21 @@
+body{
+    margin: 30px 50px !important;
+}
+.table{
+    margin-top: 20px;
+}
+.table-con{
+    margin-top: 20px;
+}
+.btn{
+    margin-left: 2px;
+}
+a{
+    text-decoration: none !important;
+}
+.table-responsive a{
+    color: #fff;
+}
+.table-con{
+    display: none;
+}
