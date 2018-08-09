@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/bean/Address.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/bean/Category.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/bean/Invoice.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/bean/News.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/bean/Order.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/bean/Product.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/bean/User.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/dao/AddressDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/dao/NewsDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/dao/ProductDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/dao/UserDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/dao/imp/AddressDAO_Oracle_Imp.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/dao/imp/CategoryDAO_Oracle_Imp.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/dao/imp/InterestDAO_Oracle_Imp.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/dao/imp/NewsDAO_Oracle_Imp.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/dao/imp/ProductDAO_Oracle_Imp.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/dao/imp/UserDAO_Oracle_Imp.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/services/InterestService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/esms/services/UserService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/factroy/UserDAOFactory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/servlet/BookCategoriesDetail.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/servlet/BookMain.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/servlet/ChangePassword.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/servlet/CheckCode.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/servlet/CheckImgCode.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/servlet/DelInterest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/servlet/FileUpload.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/servlet/InitCart.java" charset="UTF-16" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/servlet/InsertAddr.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/servlet/InsertIntoInterest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/servlet/UserCheck.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/servlet/UserLoginController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/xdl/servlet/UserRegisterController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/esms_init.sal.sql" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/readme.txt" charset="GBK" />
+  </component>
+</project>
