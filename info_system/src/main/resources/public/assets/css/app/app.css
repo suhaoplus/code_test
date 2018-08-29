@@ -1,0 +1,48 @@
+#overlay{
+	display: none;  
+	position: absolute;  
+	top: 0px;  
+	left: 0px;  
+	width: 100%;  
+	height: 100%;  
+	background-color: black;  
+	z-index:1001;  
+	opacity:0.5;   
+}
+#preprocess {
+	display: none;  
+	position: absolute;  
+	top: 8%;  
+	left: 20%;  
+	width: 60%;  
+	height: 84%;  
+	padding: 16px;  
+	border: 8px solid #9f2526;
+	border-radius: 5px;	
+	background-color: white;  
+	z-index:1002;  
+	overflow: auto;  
+}
+#content {
+	width:200px;
+	height:300px;
+	overflow:auto;
+	position:absolute;
+	top:230px;
+	right:16px;
+	border:1px solid gray;
+	border-radius:5px;
+	padding:3px;
+	background-color:#FFFFFF;
+}
+.upLine {
+	border-bottom:1px solid gray;
+	height:4px;
+}
+.bottomLine {
+	height: 4px;
+}
+.wrapper {
+	word-wrap: break-word;
+	word-break: normal;
+}
